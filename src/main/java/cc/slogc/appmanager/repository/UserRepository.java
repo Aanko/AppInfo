@@ -2,7 +2,6 @@ package cc.slogc.appmanager.repository;
 
 import cc.slogc.appmanager.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 
 /**
