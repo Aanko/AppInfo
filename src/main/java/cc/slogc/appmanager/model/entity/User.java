@@ -3,6 +3,7 @@ package cc.slogc.appmanager.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -12,6 +13,7 @@ import java.io.Serializable;
  * @date : 2018/9/20
  */
 @Entity
+@Table(name = "user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,6 +22,7 @@ public class User implements Serializable {
      * 主键，@Id注解标志它为主键，@GeneratedValue注解让它自增长
      */
     @Id
+
     @GeneratedValue
     private Long id;
 
@@ -32,4 +35,28 @@ public class User implements Serializable {
      * 性别
      */
     private String sex;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 }

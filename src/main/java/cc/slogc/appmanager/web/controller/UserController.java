@@ -3,7 +3,6 @@ package cc.slogc.appmanager.web.controller;
 import cc.slogc.appmanager.model.entity.User;
 import cc.slogc.appmanager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +17,6 @@ import java.util.List;
  * @date : 2018/9/20
  */
 @RestController
-
 @RequestMapping(value = "/index")
 public class UserController {
 
@@ -37,4 +35,5 @@ public class UserController {
     public List<User> list(){
         return userService.findAll();
     }
+
 }
