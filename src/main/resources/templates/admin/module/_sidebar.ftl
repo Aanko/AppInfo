@@ -28,13 +28,23 @@
             </li>
             <li class="treeview">
                 <a data-pjax="true" href="#">
-                    <i class="fa  fa-book"></i>
+                    <i class="fa  fa-apple"></i>
                     <span>应用管理</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu" style="">
                     <li><a data-pjax="true" href="#"><i class="fa fa-circle-o"></i>应用列表</a></li>
                     <li><a data-pjax="false" href="#"><i class="fa fa-circle-o"></i>应用审核</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a data-pjax="true" href="#">
+                    <i class="fa  fa-opera"></i>
+                    <span>系统管理</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li><a data-pjax="true" href="/admin/dictionary"><i class="fa fa-circle-o"></i>字典管理</a></li>
                 </ul>
             </li>
         </ul>

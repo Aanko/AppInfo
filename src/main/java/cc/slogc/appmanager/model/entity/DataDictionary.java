@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * 字典
+ *
  * @author Aanko on 2018/9/21.
  * @version 1.0
  */
@@ -25,7 +27,7 @@ public class DataDictionary implements Serializable {
     /**
      * 类型编码
      */
-    private Integer typeCode;
+    private String typeCode;
 
     /**
      * 类型名称
@@ -40,7 +42,7 @@ public class DataDictionary implements Serializable {
     /**
      * 类型值Name
      */
-    private Integer valueName;
+    private String valueName;
 
     /**
      * 创建者（后台管理员和其它角色创建的开发者）
@@ -70,11 +72,11 @@ public class DataDictionary implements Serializable {
         this.id = id;
     }
 
-    public Integer getTypeCode() {
+    public String getTypeCode() {
         return typeCode;
     }
 
-    public void setTypeCode(Integer typeCode) {
+    public void setTypeCode(String typeCode) {
         this.typeCode = typeCode;
     }
 
@@ -94,11 +96,11 @@ public class DataDictionary implements Serializable {
         this.valueId = valueId;
     }
 
-    public Integer getValueName() {
+    public String getValueName() {
         return valueName;
     }
 
-    public void setValueName(Integer valueName) {
+    public void setValueName(String valueName) {
         this.valueName = valueName;
     }
 
@@ -138,10 +140,10 @@ public class DataDictionary implements Serializable {
     public String toString() {
         return "DataDictionary{" +
                 "id=" + id +
-                ", typeCode=" + typeCode +
+                ", typeCode='" + typeCode + '\'' +
                 ", typeName='" + typeName + '\'' +
                 ", valueId=" + valueId +
-                ", valueName=" + valueName +
+                ", valueName='" + valueName + '\'' +
                 ", createdBy=" + createdBy +
                 ", creationDate=" + creationDate +
                 ", modifyBy=" + modifyBy +
