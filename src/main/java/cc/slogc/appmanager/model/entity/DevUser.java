@@ -22,6 +22,7 @@ public class DevUser implements Serializable {
      * 开发者账号
      */
     private String devCode;
+
     /**
      * 开发者名称
      */
@@ -30,14 +31,14 @@ public class DevUser implements Serializable {
     /**
      * 开发者密码
      */
-     private String devPassword;
+    private String devPassword;
 
     /**
      * 开发者邮箱
      */
-     private String devEmail;
+    private String devEmail;
 
-     /**
+    /**
      * 开发者简介
      */
     private String devInfo;
@@ -45,8 +46,7 @@ public class DevUser implements Serializable {
     /**
      * 创建者（后台管理员和其它角色创建的开发者）
      */
-
-    private  Integer createdBy;
+    private Integer createdBy;
 
     /**
      * 创建时间

@@ -20,32 +20,28 @@ public class AppCategory implements Serializable {
     private Long id;
 
     /**
-     *分类编码
+     * 分类编码
      */
-
     private String categoryCode;
 
     /**
      * 分类名称
      */
-
     private String categoryName;
 
     /**
      * 父节点Id
      */
-
     private Integer parentId;
 
     /**
      * 创建者（后台管理员和其它角色创建的开发者）
      */
+    private Integer createdBy;
 
-    private  Integer createdBy;
     /**
      * 创建时间
      */
-
     private Date creationDate;
 
     /**
