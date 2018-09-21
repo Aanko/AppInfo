@@ -1,5 +1,6 @@
 package cc.slogc.appmanager.model.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -9,10 +10,13 @@ import java.util.Date;
  * @author Aanko on 2018/9/20.
  * @version 1.0
  */
+@Entity
 public class DevUser implements Serializable {
+
     private static final long serialVersionUID = 1L;
+
     /**
-     * 主键，@Id注解标志它为主键，@GeneratedValue注解让它自增长
+     * 主键
      */
     @Id
     @GeneratedValue
@@ -62,4 +66,100 @@ public class DevUser implements Serializable {
      * 最近更新时间
      */
     private Date modifyDate;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDevCode() {
+        return devCode;
+    }
+
+    public void setDevCode(String devCode) {
+        this.devCode = devCode;
+    }
+
+    public String getDevName() {
+        return devName;
+    }
+
+    public void setDevName(String devName) {
+        this.devName = devName;
+    }
+
+    public String getDevPassword() {
+        return devPassword;
+    }
+
+    public void setDevPassword(String devPassword) {
+        this.devPassword = devPassword;
+    }
+
+    public String getDevEmail() {
+        return devEmail;
+    }
+
+    public void setDevEmail(String devEmail) {
+        this.devEmail = devEmail;
+    }
+
+    public String getDevInfo() {
+        return devInfo;
+    }
+
+    public void setDevInfo(String devInfo) {
+        this.devInfo = devInfo;
+    }
+
+    public Integer getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Integer createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Integer getModifyBy() {
+        return modifyBy;
+    }
+
+    public void setModifyBy(Integer modifyBy) {
+        this.modifyBy = modifyBy;
+    }
+
+    public Date getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    @Override
+    public String toString() {
+        return "DevUser{" +
+                "id=" + id +
+                ", devCode='" + devCode + '\'' +
+                ", devName='" + devName + '\'' +
+                ", devPassword='" + devPassword + '\'' +
+                ", devEmail='" + devEmail + '\'' +
+                ", devInfo='" + devInfo + '\'' +
+                ", createdBy=" + createdBy +
+                ", creationDate=" + creationDate +
+                ", modifyBy=" + modifyBy +
+                ", modifyDate=" + modifyDate +
+                '}';
+    }
 }

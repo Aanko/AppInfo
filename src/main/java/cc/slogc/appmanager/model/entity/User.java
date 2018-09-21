@@ -19,10 +19,9 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键，@Id注解标志它为主键，@GeneratedValue注解让它自增长
+     * 主键
      */
     @Id
-
     @GeneratedValue
     private Long id;
 
@@ -68,6 +67,4 @@ public class User implements Serializable {
                 ", sex='" + sex + '\'' +
                 '}';
     }
-
-
 }
