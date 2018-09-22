@@ -33,7 +33,7 @@
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu" style="">
-                    <li><a data-pjax="true" href="#"><i class="fa fa-circle-o"></i>应用列表</a></li>
+                    <li><a data-pjax="true" href="/admin/appInfo"><i class="fa fa-circle-o"></i>应用列表</a></li>
                     <li><a data-pjax="false" href="#"><i class="fa fa-circle-o"></i>应用审核</a></li>
                 </ul>
             </li>
