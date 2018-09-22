@@ -76,20 +76,38 @@ public class DictionaryController {
     }
 
     /**
-     * 添加
+     * 跳转到修改页面
+     *
+     * @param model model
+     * @param id id
+     * @return 模板路径admin/dictionary/form
+     */
+    @GetMapping(value = "/toEdit")
+    public String toEdit(Model model,
+                         @RequestParam(value = "id") Long id){
+        DataDictionary dataDictionary = dataDictionaryService.getById(id);
+        if(null!=dataDictionary){
+            model.addAttribute("dataDictionary",dataDictionary);
+        }
+        model.addAttribute("title", "修改");
+        return "admin/dictionary/form";
+    }
+
+    /**
+     * 保存
      *
      * @param dataDictionary dataDictionary
      * @return JsonResult
      */
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/save")
     @ResponseBody
     public JsonResult add(@ModelAttribute DataDictionary dataDictionary) {
         try {
             dataDictionaryService.add(dataDictionary);
         } catch (Exception e) {
             e.printStackTrace();
-            return new JsonResult(0, "添加失败");
+            return new JsonResult(0, "保存失败");
         }
-        return new JsonResult(1, "添加成功");
+        return new JsonResult(1, "保存成功");
     }
 }

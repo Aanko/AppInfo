@@ -27,7 +27,10 @@
                     <div class="col-xs-12">
                         <div class="box box-primary">
                             <div class="box-body">
-                                <button class="btn btn-primary btn-sm" onclick="add()">添加</button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-primary btn-sm" onclick="add()">添加</button>
+                                    <button class="btn btn-danger btn-sm" onclick="">批量删除</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -37,6 +40,9 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
+                                        <th>
+                                            <input name="" id="" type="checkbox" class="minimal" value="">
+                                        </th>
                                         <th>编码</th>
                                         <th>名称</th>
                                         <th>类型值</th>
@@ -49,6 +55,9 @@
                                         <#if dictionaries.content?size gt 0>
                                             <#list dictionaries.content as dictionary>
                                                 <tr>
+                                                    <td>
+                                                        <input name="" id="" type="checkbox" class="minimal" value="">
+                                                    </td>
                                                     <td>
                                                         <label>${dictionary.typeCode!}</label>
                                                     </td>
@@ -63,7 +72,7 @@
                                                     </td>
                                                     <td>${dictionary.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
                                                     <td>
-                                                        <button class="btn btn-primary btn-xs">编辑</button>
+                                                        <button class="btn btn-primary btn-xs" onclick="edit('${dictionary.id}')">编辑</button>
                                                         <button class="btn btn-danger btn-xs" onclick="modelShow('/admin/dictionary/delete?id=${dictionary.id}','你他妈确定要删除？')">删除</button>
                                                     </td>
                                                 </tr>
@@ -132,14 +141,14 @@
                         scrollbar: false
                     });
                 }
-                function edit() {
+                function edit(id) {
                     layer.open({
                         type: 2,
                         title: '修改',
                         shadeClose: true,
                         shade: 0.5,
                         maxmin: true,
-                        area: ['90%', '90%'],
+                        area: ['500px', '500px'],
                         content: '/admin/dictionary/toEdit?id='+id,
                         scrollbar: false
                     });

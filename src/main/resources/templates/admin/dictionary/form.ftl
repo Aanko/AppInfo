@@ -19,29 +19,32 @@
                     <h3 class="box-title">${title}</h3>
                 </div>
                 <form class="form-horizontal" id="dictionaryForm">
+                    <#if dataDictionary??>
+                        <input type="hidden" name="id" value="${dataDictionary.id}">
+                    </#if>
                     <div class="box-body">
                         <div class="form-group">
                             <label for="typeCode" class="col-sm-2 control-label">类型编码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="typeCode" name="typeCode" value="">
+                                <input type="text" class="form-control" id="typeCode" name="typeCode" value="<#if dataDictionary??>${dataDictionary.typeCode?if_exists}</#if>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="typeName" class="col-sm-2 control-label">类型名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="typeName" name="typeName" value="" >
+                                <input type="text" class="form-control" id="typeName" name="typeName" value="<#if dataDictionary??>${dataDictionary.typeName?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="valueId" class="col-sm-2 control-label">类型值</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="valueId" name="valueId" value="" >
+                                <input type="text" class="form-control" id="valueId" name="valueId" value="<#if dataDictionary??>${dataDictionary.valueId?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="valueName" class="col-sm-2 control-label">类型值名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="valueName" name="valueName" value="" >
+                                <input type="text" class="form-control" id="valueName" name="valueName" value="<#if dataDictionary??>${dataDictionary.valueName?if_exists}</#if>" >
                             </div>
                         </div>
                     </div>
@@ -64,7 +67,7 @@
         var param = $("#dictionaryForm").serialize();
         $.ajax({
             type: 'POST',
-            url: '/admin/dictionary/add',
+            url: '/admin/dictionary/save',
             async: false,
             data: param,
             success: function (data) {
