@@ -8,9 +8,34 @@
         <#include "module/_sidebar.ftl">
         <div class="content-wrapper">
             <style type="text/css" rel="stylesheet">
-                .draft,.publish,.trash{list-style:none;float:left;margin:0;padding-bottom:10px}
-                #btnNewPost{margin-left:4px;padding:3px 6px;position:relative;top:-4px;border:1px solid #ccc;border-radius:2px;background:#fff;text-shadow:none;font-weight:600;font-size:12px;line-height:normal;color:#3c8dbc;cursor:pointer;transition:all .2s ease-in-out}
-                #btnNewPost:hover{background:#3c8dbc;color:#fff}
+                .draft, .publish, .trash {
+                    list-style: none;
+                    float: left;
+                    margin: 0;
+                    padding-bottom: 10px
+                }
+
+                #btnNewPost {
+                    margin-left: 4px;
+                    padding: 3px 6px;
+                    position: relative;
+                    top: -4px;
+                    border: 1px solid #ccc;
+                    border-radius: 2px;
+                    background: #fff;
+                    text-shadow: none;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: normal;
+                    color: #3c8dbc;
+                    cursor: pointer;
+                    transition: all .2s ease-in-out
+                }
+
+                #btnNewPost:hover {
+                    background: #3c8dbc;
+                    color: #fff
+                }
             </style>
             <section class="content-header">
                 <h1 style="display: inline-block;">APP列表</h1>
@@ -27,7 +52,7 @@
                     <div class="col-xs-12">
                         <div class="box box-primary">
                             <div class="box-body">
-                                <button class="btn btn-primary btn-sm" onclick="add()">添加</button>
+                                <button class="btn btn-primary btn-sm" onclick="add()">新增</button>
                             </div>
                         </div>
                     </div>
@@ -37,10 +62,11 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>编码</th>
-                                        <th>名称</th>
-                                        <th>类型值</th>
-                                        <th>类型名称</th>
+                                        <th>应用名称</th>
+                                        <th>APk名称</th>
+                                        <th>应用简介</th>
+                                        <th>下载次数</th>
+                                        <th>版本</th>
                                         <th>创建时间</th>
                                         <th>操作</th>
                                     </tr>
@@ -49,6 +75,7 @@
                                         <#if appInfos.content?size gt 0>
                                             <#list appInfos.content as appInfo>
                                                 <tr>
+                                                    <td><label>${appInfo.softwareName!}</label></td>
                                                     <td>
                                                         <label>${appInfo.apkName!}</label>
                                                     </td>
@@ -59,12 +86,17 @@
                                                         <label>${appInfo.downloads!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.valueName!}</label>
+                                                        <label>${appInfo.versionId!}</label>
                                                     </td>
                                                     <td>${appInfo.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
                                                     <td>
-                                                        <button class="btn btn-primary btn-xs">编辑</button>
-                                                        <button class="btn btn-danger btn-xs" onclick="modelShow('/admin/dictionary/delete?id=${appInfo.id}','你他妈确定要删除？')">删除</button>
+                                                        <button class="btn btn-primary btn-xs"
+                                                                onclick="edit('${appInfo.id}')">编辑
+                                                        </button>
+                                                        <button class="btn btn-danger btn-xs"
+                                                                onclick="modelShow('/admin/appInfo/delete?id=${appInfo.id}','你确定要删除？')">
+                                                            删除
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             </#list>
@@ -81,10 +113,16 @@
                                     第${appInfos.number+1}/${appInfos.totalPages}页
                                 </div>
                                 <ul class="pagination no-margin pull-right">
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>" href="/admin/posts">首页</a> </li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>" href="/admin/posts?page=${appInfos.number-1}">上一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>" href="/admin/posts?page=${appInfos.number+1}">下一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>" href="/admin/posts?page=${appInfos.totalPages-1}">尾页</a> </li>
+                                    <li><a data-pjax="true"
+                                           class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>"
+                                           href="/admin/posts">首页</a></li>
+                                    <li><a data-pjax="true"
+                                           class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>"
+                                           href="/admin/posts?page=${appInfos.number-1}">上一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>"
+                                           href="/admin/posts?page=${appInfos.number+1}">下一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>"
+                                           href="/admin/posts?page=${appInfos.totalPages-1}">尾页</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -96,7 +134,8 @@
                 <div class="modal-dialog">
                     <div class="modal-content message_align">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">×</span></button>
                             <h4 class="modal-title">提示</h4>
                         </div>
                         <div class="modal-body">
@@ -111,6 +150,34 @@
                 </div>
             </div>
         </div>
+        <script>
+            function add() {
+                layer.open({
+                    type: 2,
+                    title: '添加',
+                    shadeClose: true,
+                    shade: 0.5,
+                    maxmin: true,
+                    area: ['500px', '500px'],
+                    content: '/admin/appInfo/toAddAppInfo',
+                    scrollbar: false
+                });
+            }
+
+            function edit(id) {
+                layer.open({
+                    type: 2,
+                    title: '修改',
+                    shadeClose: true,
+                    shade: 0.5,
+                    maxmin: true,
+                    area: ['500px', '500px'],
+                    content: '/admin/appInfo/toEdit?id=' + id,
+                    scrollbar: false
+                });
+            }
+
+        </script>
         <#include "module/_footer.ftl">
     </div>
     <@footer></@footer>

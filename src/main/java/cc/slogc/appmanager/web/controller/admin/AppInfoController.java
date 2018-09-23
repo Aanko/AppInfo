@@ -1,7 +1,7 @@
 package cc.slogc.appmanager.web.controller.admin;
 
+import cc.slogc.appmanager.model.dto.JsonResult;
 import cc.slogc.appmanager.model.entity.AppInfo;
-import cc.slogc.appmanager.model.entity.DataDictionary;
 import cc.slogc.appmanager.service.AppInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,9 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Aanko on 2018/9/22.
@@ -31,9 +29,57 @@ public class AppInfoController {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = PageRequest.of(page, size, sort);
         Page<AppInfo> appInfos = appInfoService.listPage(pageable);
-        //将dictionaries返回到页面
+        //将appInfos返回到页面
         model.addAttribute("appInfos", appInfos);
         return "admin/admin_appInfo";
+    }
+
+    /**
+     * 跳转到修改页面
+     *
+     * @param model model
+     * @param id id
+     * @return 模板路径admin/app/form
+     */
+    @GetMapping(value = "/toEdit")
+    public String toEdit(Model model,
+                         @RequestParam(value = "id") Long id){
+        AppInfo appInfo = appInfoService.getById(id);
+        if(null!=appInfo){
+            model.addAttribute("appInfo",appInfo);
+        }
+        model.addAttribute("title", "修改");
+        return "admin/appInfo/form";
+    }
+
+    /**
+     * 跳转到添加页面
+     *
+     * @param model model
+     * @return 模板路径admin/appinfo/form
+     */
+    @GetMapping(value = "/toAddAppInfo")
+    public String toAdd(Model model) {
+        model.addAttribute("title", "添加");
+        return "admin/appInfo/form";
+    }
+
+    /**
+     * 保存
+     *
+     * @param appInfo appInfo
+     * @return JsonResult
+     */
+    @PostMapping(value = "/save")
+    @ResponseBody
+    public JsonResult add(@ModelAttribute AppInfo appInfo) {
+        try {
+            appInfoService.add(appInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new JsonResult(0, "保存失败");
+        }
+        return new JsonResult(1, "保存成功");
     }
 
 }

@@ -1,6 +1,7 @@
 package cc.slogc.appmanager.service.impl;
 
 import cc.slogc.appmanager.model.entity.AppInfo;
+import cc.slogc.appmanager.model.entity.DataDictionary;
 import cc.slogc.appmanager.repository.AppInfoRepository;
 import cc.slogc.appmanager.service.AppInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +22,18 @@ public class AppInfoServicelmpl extends AppInfoService {
 
     @Autowired
     private AppInfoRepository appInfoRepository;
+    /**
+     * 添加app信息
+     *
+     * @param appInfo appInfo
+     */
+    @Override
+    public void add(AppInfo appInfo) {
+        //添加时设置创建时间和更新时间为当前时间
+        appInfo.setCreationDate(new Date());
+        appInfo.setModifyDate(new Date());
+        appInfoRepository.save(appInfo);
+    }
 
     /**
      * 列出所有app 信息

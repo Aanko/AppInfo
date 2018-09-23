@@ -35,4 +35,12 @@ public abstract class AppInfoService {
      * @return DataDictionary
      */
     public abstract AppInfo getById(Long id);
+
+
+    /**
+     * 添加App
+     *
+     * @param appInfo appInfo
+     */
+    public abstract void add(AppInfo appInfo);
 }
