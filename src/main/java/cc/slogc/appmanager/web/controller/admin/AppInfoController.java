@@ -82,4 +82,24 @@ public class AppInfoController {
         return new JsonResult(1, "保存成功");
     }
 
+
+    /**
+     * 根据编号删除App信息
+     *
+     * @param id 编号
+     * @return 重定向到/admin/appInfo
+     */
+    @GetMapping(value = "/delete")
+    public String delete(@RequestParam(value = "id") Long id) {
+        try {
+            AppInfo appInfo = appInfoService.getById(id);
+            if (null != appInfo) {
+                appInfoService.delete(appInfo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/admin/appInfo";
+    }
+
 }

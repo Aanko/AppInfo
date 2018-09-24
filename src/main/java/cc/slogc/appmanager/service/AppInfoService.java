@@ -43,4 +43,12 @@ public abstract class AppInfoService {
      * @param appInfo appInfo
      */
     public abstract void add(AppInfo appInfo);
+
+    /**
+     *
+     * 删除App信息
+     *
+     * @param appInfo
+     */
+    public abstract void delete(AppInfo appInfo);
 }

@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="valueId" class="col-sm-2 control-label">应用简介</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="appInfo" name="appInfo" value="<#if appInfo??>${appInfo.appInfo?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="appInduction" name="appInduction" value="<#if appInfo??>${appInfo.appInduction?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">

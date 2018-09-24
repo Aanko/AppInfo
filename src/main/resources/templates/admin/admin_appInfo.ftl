@@ -1,6 +1,6 @@
 <#compress >
     <#include "module/_macro.ftl">
-    <@head>AppManager | 字典管理</@head>
+    <@head>AppManager | App信息管理</@head>
     <div class="wrapper">
         <!-- 顶部栏模块 -->
         <#include "module/_header.ftl">
@@ -52,7 +52,7 @@
                     <div class="col-xs-12">
                         <div class="box box-primary">
                             <div class="box-body">
-                                <button class="btn btn-primary btn-sm" onclick="add()">新增</button>
+                                <button class="btn btn-primary btn-sm" onclick="addAppInfo()">新增</button>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                                                         <label>${appInfo.apkName!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.appInfo!}</label>
+                                                        <label>${appInfo.appInduction!}</label>
                                                     </td>
                                                     <td>
                                                         <label>${appInfo.downloads!}</label>
@@ -151,7 +151,16 @@
             </div>
         </div>
         <script>
-            function add() {
+            function modelShow(url,message) {
+                $('#url').val(url);
+                $('#message').html(message);
+                $('#removePostModal').modal();
+            }
+            function removeIt(){
+                var url=$.trim($("#url").val());
+                window.location.href=url;
+            }
+            function addAppInfo() {
                 layer.open({
                     type: 2,
                     title: '添加',

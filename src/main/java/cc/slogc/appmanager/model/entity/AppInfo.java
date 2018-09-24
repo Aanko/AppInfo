@@ -60,7 +60,7 @@ public class AppInfo implements Serializable {
     /**
      * 应用简介
      */
-    private String appInfo;
+    private String appInduction;
 
     /**
      * 应用状态(来源于：data_dictionary，1 待审核 2 审核通过 3 审核不通过 4 已上架 5 已下架)
@@ -201,12 +201,12 @@ public class AppInfo implements Serializable {
         this.devId = devId;
     }
 
-    public String getAppInfo() {
-        return appInfo;
+    public String getAppInduction() {
+        return appInduction;
     }
 
-    public void setAppInfo(String appInfo) {
-        this.appInfo = appInfo;
+    public void setAppInduction(String appInduction) {
+        this.appInduction = appInduction;
     }
 
     public Integer getStatus() {
@@ -340,7 +340,7 @@ public class AppInfo implements Serializable {
                 ", softwareSize=" + softwareSize +
                 ", updateDate=" + updateDate +
                 ", devId=" + devId +
-                ", appInfo='" + appInfo + '\'' +
+                ", appInduction='" + appInduction + '\'' +
                 ", status=" + status +
                 ", onSaleDate=" + onSaleDate +
                 ", offSaleDate=" + offSaleDate +

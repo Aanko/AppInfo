@@ -22,6 +22,7 @@ public class AppInfoServicelmpl extends AppInfoService {
 
     @Autowired
     private AppInfoRepository appInfoRepository;
+
     /**
      * 添加app信息
      *
@@ -44,6 +45,7 @@ public class AppInfoServicelmpl extends AppInfoService {
     public List<AppInfo> listAll() {
         return appInfoRepository.findAll();
     }
+
     /**
      * 列出所有app信息 分页
      *
@@ -54,6 +56,7 @@ public class AppInfoServicelmpl extends AppInfoService {
     public Page<AppInfo> listPage(Pageable pageable) {
         return appInfoRepository.findAll(pageable);
     }
+
     /**
      * 根据id查询app信息
      *
@@ -63,6 +66,16 @@ public class AppInfoServicelmpl extends AppInfoService {
     @Override
     public AppInfo getById(Long id) {
         return appInfoRepository.getOne(id);
+    }
+
+    /**
+     * 删除App信息
+     *
+     * @param appInfo appInfo
+     */
+    @Override
+    public void delete(AppInfo appInfo) {
+        appInfoRepository.delete(appInfo);
     }
 
 }
