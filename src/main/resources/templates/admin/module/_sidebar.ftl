@@ -39,6 +39,17 @@
             </li>
             <li class="treeview">
                 <a data-pjax="true" href="#">
+                    <i class="fa  fa-user-circle"></i>
+                    <span>成员管理</span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li><a data-pjax="true" href="/admin/DevUser"><i class="fa fa-circle-o"></i>开发者管理</a></li>
+                    <li><a data-pjax="false" href="#"><i class="fa fa-circle-o"></i>管理员</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a data-pjax="true" href="#">
                     <i class="fa  fa-opera"></i>
                     <span>系统管理</span>
                     <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>

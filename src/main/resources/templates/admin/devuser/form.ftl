@@ -18,45 +18,39 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">${title}</h3>
                 </div>
-                <form class="form-horizontal" id="appInfoForm">
-                    <#if appInfo??>
-                        <input type="hidden" name="id" value="${appInfo.id}">
+                <form class="form-horizontal" id="devUserForm">
+                    <#if devUser??>
+                        <input type="hidden" name="id" value="${devUser.id}">
                     </#if>
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="softwareName" class="col-sm-2 control-label">软件名称</label>
+                            <label for="devCode" class="col-sm-2 control-label">编码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="softwareName" name="softwareName" value="<#if appInfo??>${appInfo.softwareName?if_exists}</#if>">
+                                <input type="text" class="form-control" id="devCode" name="devCode" value="<#if devUser??>${devUser.devCode?if_exists}</#if>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="apkName" class="col-sm-2 control-label">Apk名称</label>
+                            <label for="devName" class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="apkName" name="apkName" value="<#if appInfo??>${appInfo.apkName?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="devName" name="devName" value="<#if devUser??>${devUser.devName?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="appInduction" class="col-sm-2 control-label">应用简介</label>
+                            <label for="devEmail" class="col-sm-2 control-label">邮箱</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="appInduction" name="appInduction" value="<#if appInfo??>${appInfo.appInduction?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="devEmail" name="devEmail" value="<#if devUser??>${devUser.devEmail?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="softwareSize" class="col-sm-2 control-label">软件大小（按照m计算）</label>
+                            <label for="devInfo" class="col-sm-2 control-label">开发者简介</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="softwareSize" name="softwareSize" value="<#if appInfo??>${appInfo.softwareSize?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="devInfo" name="devInfo" value="<#if devUser??>${devUser.devInfo?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="downloads" class="col-sm-2 control-label">下载次数</label>
+                            <label for="devPassword" class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="downloads" name="downloads" value="<#if appInfo??>${appInfo.downloads?if_exists}</#if>" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="versionId" class="col-sm-2 control-label">版本</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="versionId" name="versionId" value="<#if appInfo??>${appInfo.versionId?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="devPassword" name="devPassword" value="<#if devUser??>${devUser.devPassword?if_exists}</#if>" >
                             </div>
                         </div>
                     </div>
@@ -76,10 +70,10 @@
 <script src="/static/plugins/layer/layer.js"></script>
 <script>
     function save() {
-        var param = $("#appInfoForm").serialize();
+        var param = $("#devUserForm").serialize();
         $.ajax({
             type: 'POST',
-            url: '/admin/appInfo/save',
+            url: '/admin/DevUser/save',
             async: false,
             data: param,
             success: function (data) {

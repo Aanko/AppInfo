@@ -45,11 +45,13 @@ public class AppInfo implements Serializable {
     /**
      * 软件的大小
      */
+
     private Double softwareSize;
 
     /**
      * 更新日期
      */
+    
     private Date updateDate;
 
     /**
