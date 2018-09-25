@@ -31,7 +31,7 @@ public class AppInfoController {
         Page<AppInfo> appInfos = appInfoService.listPage(pageable);
         //将appInfos返回到页面
         model.addAttribute("appInfos", appInfos);
-        return "admin/admin_appInfo";
+        return "admin/admin_app";
     }
 
     /**
@@ -58,7 +58,7 @@ public class AppInfoController {
      * @param model model
      * @return 模板路径admin/appinfo/form
      */
-    @GetMapping(value = "/toAddAppInfo")
+    @GetMapping(value = "/toAdd")
     public String toAdd(Model model) {
         model.addAttribute("title", "添加");
         return "admin/appInfo/form";

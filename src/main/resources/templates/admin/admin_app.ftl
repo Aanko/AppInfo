@@ -1,6 +1,6 @@
 <#compress >
     <#include "module/_macro.ftl">
-    <@head>AppManager | App信息管理</@head>
+    <@head>AppManager | APP管理</@head>
     <div class="wrapper">
         <!-- 顶部栏模块 -->
         <#include "module/_header.ftl">
@@ -38,13 +38,13 @@
                 }
             </style>
             <section class="content-header">
-                <h1 style="display: inline-block;">APP列表</h1>
+                <h1 style="display: inline-block;">APP管理</h1>
                 <ol class="breadcrumb">
                     <li>
                         <a data-pjax="true" href="/admin">
                             <i class="fa fa-dashboard"></i> 首页</a>
                     </li>
-                    <li><a data-pjax="true" href="#">APP列表</a></li>
+                    <li><a data-pjax="true" href="#">APP管理</a></li>
                 </ol>
             </section>
             <section class="content container-fluid">
@@ -52,7 +52,9 @@
                     <div class="col-xs-12">
                         <div class="box box-primary">
                             <div class="box-body">
-                                <button class="btn btn-primary btn-sm" onclick="add()">新增</button>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button class="btn btn-primary btn-sm" onclick="add()">新增</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -74,31 +76,31 @@
                                     </thead>
                                     <tbody>
                                         <#if appInfos.content?size gt 0>
-                                            <#list appInfos.content as appInfo>
+                                            <#list appInfos.content as appinfo>
                                                 <tr>
-                                                    <td><label>${appInfo.softwareName!}</label></td>
+                                                    <td><label>${appinfo.softwareName!}</label></td>
                                                     <td>
-                                                        <label>${appInfo.apkName!}</label>
+                                                        <label>${appinfo.apkName!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.appInduction!}</label>
+                                                        <label>${appinfo.appInduction!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.softwareSize!}</label>
+                                                        <label>${appinfo.softwareSize!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.downloads!}</label>
+                                                        <label>${appinfo.downloads!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appInfo.versionId!}</label>
+                                                        <label>${appinfo.versionId!}</label>
                                                     </td>
-                                                    <td>${appInfo.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
+                                                    <td>${appinfo.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
                                                     <td>
                                                         <button class="btn btn-primary btn-xs"
-                                                                onclick="edit('${appInfo.id}')">编辑
+                                                                onclick="edit('${appinfo.id}')">编辑
                                                         </button>
                                                         <button class="btn btn-danger btn-xs"
-                                                                onclick="modelShow('/admin/appInfo/delete?id=${appInfo.id}','你确定要删除？')">
+                                                                onclick="modelShow('/admin/appInfo/delete?id=${appinfo.id}','你他妈确定要删除？')">
                                                             删除
                                                         </button>
                                                     </td>
@@ -153,44 +155,45 @@
                     </div>
                 </div>
             </div>
+            <script>
+                function modelShow(url, message) {
+                    $('#url').val(url);
+                    $('#message').html(message);
+                    $('#removePostModal').modal();
+                }
+
+                function removeIt() {
+                    var url = $.trim($("#url").val());
+                    window.location.href = url;
+                }
+
+                function add() {
+                    layer.open({
+                        type: 2,
+                        title: '添加',
+                        shadeClose: true,
+                        shade: 0.5,
+                        maxmin: true,
+                        area: ['700px', '700px'],
+                        content: '/admin/appInfo/toAdd',
+                        scrollbar: false
+                    });
+                }
+
+                function edit(id) {
+                    layer.open({
+                        type: 2,
+                        title: '修改',
+                        shadeClose: true,
+                        shade: 0.5,
+                        maxmin: true,
+                        area: ['700px', '700px'],
+                        content: '/admin/appInfo/toEdit?id=' + id,
+                        scrollbar: false
+                    });
+                }
+            </script>
         </div>
-        <script>
-            function modelShow(url,message) {
-                $('#url').val(url);
-                $('#message').html(message);
-                $('#removePostModal').modal();
-            }
-            function removeIt(){
-                var url=$.trim($("#url").val());
-                window.location.href=url;
-            }
-            function add() {
-                layer.open({
-                    type: 2,
-                    title: '添加',
-                    shadeClose: true,
-                    shade: 0.5,
-                    maxmin: true,
-                    area: ['700px', '700px'],
-                    content: '/admin/appInfo/toAddAppInfo',
-                    scrollbar: false
-                });
-            }
-
-            function edit(id) {
-                layer.open({
-                    type: 2,
-                    title: '修改',
-                    shadeClose: true,
-                    shade: 0.5,
-                    maxmin: true,
-                    area: ['700px', '700px'],
-                    content: '/admin/appInfo/toEdit?id=' + id,
-                    scrollbar: false
-                });
-            }
-
-        </script>
         <#include "module/_footer.ftl">
     </div>
     <@footer></@footer>
