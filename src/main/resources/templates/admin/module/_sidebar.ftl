@@ -34,7 +34,6 @@
                 </a>
                 <ul class="treeview-menu" style="">
                     <li><a data-pjax="true" href="/admin/appInfo"><i class="fa fa-circle-o"></i>应用列表</a></li>
-                    <li><a data-pjax="false" href="#"><i class="fa fa-circle-o"></i>应用审核</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -45,7 +44,7 @@
                 </a>
                 <ul class="treeview-menu" style="">
                     <li><a data-pjax="true" href="/admin/DevUser"><i class="fa fa-circle-o"></i>开发者管理</a></li>
-                    <li><a data-pjax="false" href="#"><i class="fa fa-circle-o"></i>管理员</a></li>
+                    <li><a data-pjax="false" href="/admin/SysUser"><i class="fa fa-circle-o"></i>管理员</a></li>
                 </ul>
             </li>
             <li class="treeview">

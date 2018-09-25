@@ -1,6 +1,6 @@
 <#compress >
     <#include "module/_macro.ftl">
-    <@head>AppManager | 开发者用户管理</@head>
+    <@head>AppManager | 管理员用户管理</@head>
     <div class="wrapper">
         <!-- 顶部栏模块 -->
         <#include "module/_header.ftl">
@@ -38,13 +38,13 @@
                 }
             </style>
             <section class="content-header">
-                <h1 style="display: inline-block;">开发者用户管理</h1>
+                <h1 style="display: inline-block;">管理员用户管理</h1>
                 <ol class="breadcrumb">
                     <li>
                         <a data-pjax="true" href="/admin">
                             <i class="fa fa-dashboard"></i> 首页</a>
                     </li>
-                    <li><a data-pjax="true" href="#">开发者用户管理</a></li>
+                    <li><a data-pjax="true" href="#">管理员用户管理</a></li>
                 </ol>
             </section>
             <section class="content container-fluid">
@@ -64,37 +64,33 @@
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>编码</th>
+                                        <th>管理员账号</th>
                                         <th>昵称</th>
-                                        <th>邮箱</th>
-                                        <th>开发者简介</th>
+                                        <th>类型</th>
                                         <th>创建时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <#if devUsers.content?size gt 0>
-                                            <#list devUsers.content as devUser>
+                                        <#if sysUsers.content?size gt 0>
+                                            <#list sysUsers.content as sysUser>
                                                 <tr>
                                                     <td>
-                                                        <label>${devUser.devCode!}</label>
+                                                        <label>${sysUser.userCode!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${devUser.devName!}</label>
+                                                        <label>${sysUser.userName!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${devUser.devEmail!}</label>
+                                                        <label>${sysUser.userType!}</label>
                                                     </td>
-                                                    <td>
-                                                        <label>${devUser.devInfo!}</label>
-                                                    </td>
-                                                    <td>${devUser.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
+                                                    <td>${sysUser.creationDate?if_exists?string("yyyy-MM-dd HH:mm")}</td>
                                                     <td>
                                                         <button class="btn btn-primary btn-xs"
-                                                                onclick="edit('${devUser.id}')">编辑
+                                                                onclick="edit('${sysUser.id}')">编辑
                                                         </button>
                                                         <button class="btn btn-danger btn-xs"
-                                                                onclick="modelShow('/admin/DevUser/delete?id=${devUser.id}','你他妈确定要删除？')">
+                                                                onclick="modelShow('/admin/SysUser/delete?id=${sysUser.id}','你他妈确定要删除？')">
                                                             删除
                                                         </button>
                                                     </td>
@@ -110,19 +106,19 @@
                             </div>
                             <div class="box-footer clearfix">
                                 <div class="no-margin pull-left">
-                                    第${devUsers.number+1}/${devUsers.totalPages}页
+                                    第${sysUsers.number+1}/${sysUsers.totalPages}页
                                 </div>
                                 <ul class="pagination no-margin pull-right">
                                     <li><a data-pjax="true"
-                                           class="btn btn-sm <#if !devUsers.hasPrevious()>disabled</#if>"
+                                           class="btn btn-sm <#if !sysUsers.hasPrevious()>disabled</#if>"
                                            href="/admin/posts">首页</a></li>
                                     <li><a data-pjax="true"
-                                           class="btn btn-sm <#if !devUsers.hasPrevious()>disabled</#if>"
-                                           href="/admin/posts?page=${devUsers.number-1}">上一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !devUsers.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${devUsers.number+1}">下一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !devUsers.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${devUsers.totalPages-1}">尾页</a></li>
+                                           class="btn btn-sm <#if !sysUsers.hasPrevious()>disabled</#if>"
+                                           href="/admin/posts?page=${sysUsers.number-1}">上一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !sysUsers.hasNext()>disabled</#if>"
+                                           href="/admin/posts?page=${sysUsers.number+1}">下一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !sysUsers.hasNext()>disabled</#if>"
+                                           href="/admin/posts?page=${sysUsers.totalPages-1}">尾页</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -169,7 +165,7 @@
                         shade: 0.5,
                         maxmin: true,
                         area: ['500px', '550px'],
-                        content: '/admin/DevUser/toAdd',
+                        content: '/admin/SysUser/toAdd',
                         scrollbar: false
                     });
                 }
@@ -182,7 +178,7 @@
                         shade: 0.5,
                         maxmin: true,
                         area: ['500px', '550px'],
-                        content: '/admin/DevUser/toEdit?id=' + id,
+                        content: '/admin/SysUser/toEdit?id=' + id,
                         scrollbar: false
                     });
                 }

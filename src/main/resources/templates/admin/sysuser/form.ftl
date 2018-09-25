@@ -18,39 +18,33 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">${title}</h3>
                 </div>
-                <form class="form-horizontal" id="devUserForm">
-                    <#if devUser??>
-                        <input type="hidden" name="id" value="${devUser.id}">
+                <form class="form-horizontal" id="sysUserForm">
+                    <#if sysUser??>
+                        <input type="hidden" name="id" value="${sysUser.id}">
                     </#if>
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="devCode" class="col-sm-2 control-label">开发者编码</label>
+                            <label for="devCode" class="col-sm-2 control-label">管理员账号</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="devCode" name="devCode" value="<#if devUser??>${devUser.devCode?if_exists}</#if>">
+                                <input type="text" class="form-control" id="userCode" name="userCode" value="<#if sysUser??>${sysUser.userCode?if_exists}</#if>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="devName" class="col-sm-2 control-label">开发者昵称</label>
+                            <label for="devName" class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="devName" name="devName" value="<#if devUser??>${devUser.devName?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="userName" name="userName" value="<#if sysUser??>${sysUser.userName?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="devEmail" class="col-sm-2 control-label">开发者邮箱</label>
+                            <label for="devEmail" class="col-sm-2 control-label">类型</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="devEmail" name="devEmail" value="<#if devUser??>${devUser.devEmail?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="userType" name="userType" value="<#if sysUser??>${sysUser.userType?if_exists}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="devInfo" class="col-sm-2 control-label">开发者简介</label>
+                            <label for="devPassword" class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="devInfo" name="devInfo" value="<#if devUser??>${devUser.devInfo?if_exists}</#if>" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="devPassword" class="col-sm-2 control-label">开发者密码</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="devPassword" name="devPassword" value="<#if devUser??>${devUser.devPassword?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="userPassword" name="userPassword" value="<#if sysUser??>${sysUser.userPassword?if_exists}</#if>" >
                             </div>
                         </div>
                     </div>
@@ -70,10 +64,10 @@
 <script src="/static/plugins/layer/layer.js"></script>
 <script>
     function save() {
-        var param = $("#devUserForm").serialize();
+        var param = $("#sysUserForm").serialize();
         $.ajax({
             type: 'POST',
-            url: '/admin/DevUser/save',
+            url: '/admin/SysUser/save',
             async: false,
             data: param,
             success: function (data) {
