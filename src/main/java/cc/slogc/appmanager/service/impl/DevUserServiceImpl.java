@@ -47,7 +47,7 @@ public class DevUserServiceImpl extends DevUserService {
      * 根据id查询开发者用户
      *
      * @param id id
-     * @return DataDictionary
+     * @return DevUser
      */
     @Override
     public DevUser getById(Long id) {
@@ -56,7 +56,7 @@ public class DevUserServiceImpl extends DevUserService {
 
 
     /**
-     * 添加字典
+     * 添加开发者
      *
      * @param devUser devUser
      */
@@ -69,7 +69,7 @@ public class DevUserServiceImpl extends DevUserService {
     }
 
     /**
-     * 删除字典
+     * 删除开发者
      *
      * @param devUser devUser
      */
@@ -79,7 +79,7 @@ public class DevUserServiceImpl extends DevUserService {
     }
 
     /**
-     * 修改字典
+     * 修改开发者
      *
      * @param devUser devUser
      */

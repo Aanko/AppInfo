@@ -1,7 +1,6 @@
 package cc.slogc.appmanager.service;
 
 import cc.slogc.appmanager.model.entity.AppInfo;
-import cc.slogc.appmanager.model.entity.DataDictionary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -32,7 +31,7 @@ public abstract class AppInfoService {
      * 根据id查App信息
      *
      * @param id id
-     * @return DataDictionary
+     * @return AppInfo
      */
     public abstract AppInfo getById(Long id);
 

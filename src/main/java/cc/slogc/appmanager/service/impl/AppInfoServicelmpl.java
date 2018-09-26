@@ -1,7 +1,6 @@
 package cc.slogc.appmanager.service.impl;
 
 import cc.slogc.appmanager.model.entity.AppInfo;
-import cc.slogc.appmanager.model.entity.DataDictionary;
 import cc.slogc.appmanager.repository.AppInfoRepository;
 import cc.slogc.appmanager.service.AppInfoService;
 import org.springframework.beans.factory.annotation.Autowired;

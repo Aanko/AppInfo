@@ -40,7 +40,7 @@ public class SysUserServiceImpl extends SysUserService {
     }
 
     /**
-     * 根据id查询开发者用户
+     * 根据id查询管理员用户
      *
      * @param id id
      * @return DataDictionary
@@ -52,7 +52,7 @@ public class SysUserServiceImpl extends SysUserService {
 
 
     /**
-     * 添加字典
+     * 添加管理员
      *
      * @param sysUser sysUser
      */
@@ -65,7 +65,7 @@ public class SysUserServiceImpl extends SysUserService {
     }
 
     /**
-     * 删除字典
+     * 删除管理员
      *
      * @param sysUser sysUser
      */
@@ -75,7 +75,7 @@ public class SysUserServiceImpl extends SysUserService {
     }
 
     /**
-     * 修改字典
+     * 修改管理员
      *
      * @param sysUser sysUser
      */
