@@ -10,8 +10,8 @@ import org.springframework.web.servlet.config.annotation.*;
  *     拦截器，资源路径配置
  * </pre>
  *
- * @author : RYAN0UP
- * @date : 2018/1/2
+ * @author : Aanko
+ * @date : 2018/9/26
  */
 @Configuration
 @EnableWebMvc

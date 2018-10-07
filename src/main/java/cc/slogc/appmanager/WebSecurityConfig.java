@@ -1,7 +1,7 @@
-package springboot.login;
+package cc.slogc.appmanager;
 
 /**
- * Created by huangds on 2017/10/24.
+ * Created by wei on 2018/9/29.
  */
 
 import org.springframework.context.annotation.Bean;
@@ -20,8 +20,8 @@ import java.io.IOException;
  * 登录配置
  */
 @Configuration
-public class WebSecurityConfig extends WebMvcConfigurerAdapter{
-    public final static String SESSION_KEY="username";
+public class WebSecurityConfig extends WebMvcConfigurerAdapter {
+    public final static String SESSION_KEY="sesysUser";
 
     @Bean
     public SecurityInterceptor getSecurityInterceptor(){
@@ -33,22 +33,24 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter{
 
         addInterceptor.excludePathPatterns("/error");
         addInterceptor.excludePathPatterns("/login**");
-
+        addInterceptor.excludePathPatterns("/login/**");
+        addInterceptor.excludePathPatterns("/index");
+        addInterceptor.excludePathPatterns("/static/**");
+        addInterceptor.excludePathPatterns("/templates/**");
         addInterceptor.addPathPatterns("/**");
     }
 
-    private class SecurityInterceptor extends HandlerInterceptorAdapter{
+    private class SecurityInterceptor extends HandlerInterceptorAdapter {
         @Override
-        public boolean preHandle(HttpServletRequest request, HttpServletResponse response,Object handler) throws IOException {
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
             HttpSession session = request.getSession();
 
 //            判断是否已有该用户登录的session
             if(session.getAttribute(SESSION_KEY) != null){
                 return true;
             }
-
 //            跳转到登录页
-            String url = "/login";
+            String url = "/index";
             response.sendRedirect(url);
             return false;
         }

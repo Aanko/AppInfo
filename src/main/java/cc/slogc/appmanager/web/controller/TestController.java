@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date : 2018年09月21日
  */
 @Controller
-@RequestMapping(value = "/test")
+@RequestMapping(value = "/index")
 public class TestController {
 
     @GetMapping
     public String test(){
-        return "test";
+        return "index";
     }
 }

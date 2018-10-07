@@ -13,16 +13,16 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/static/images/default.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">admin</span>
+                        <span class="hidden-xs">${sesysUser.userName}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <img src="/static/images/default.png" class="img-circle" alt="User Image">
-                            <p>admin</p>
+                            <p>${sesysUser.userName}</p>
                         </li>
                         <li class="user-footer">
                             <div class="pull-left"><a data-pjax="true" href="#" class="btn btn-default "><i class="fa fa-user"></i>个人资料</a></div>
-                            <div class="pull-right"><a href="#" class="btn btn-default "><i class="fa fa-sign-out"></i>退出</a></div>
+                            <div class="pull-right"><a href="/login/loginout"  class="btn btn-default "><i class="fa fa-sign-out"></i>退出</a></div>
                         </li>
                     </ul>
                 </li>

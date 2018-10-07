@@ -15,6 +15,7 @@ public abstract class SysUserService {
 
     /**
      * 显示所有管理员用户
+     *
      * @return List
      */
     public abstract List<SysUser> listAll();
@@ -37,6 +38,7 @@ public abstract class SysUserService {
 
     /**
      * 添加管理员用户
+     *
      * @param sysUser
      */
 
@@ -44,13 +46,19 @@ public abstract class SysUserService {
 
     /**
      * 删除管理员用户
+     *
      * @param sysUser
      */
     public abstract void delete(SysUser sysUser);
 
     /**
      * 修改管理员用户
+     *
      * @param sysUser
      */
     public abstract void update(SysUser sysUser);
+
+    public abstract SysUser verifyLogin(SysUser sysUser);
+
+
 }

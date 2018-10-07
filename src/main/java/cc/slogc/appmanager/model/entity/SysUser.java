@@ -1,5 +1,6 @@
 package cc.slogc.appmanager.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,6 +26,7 @@ public class SysUser implements Serializable {
     /**
      * 系统用户编号(登录账号)
      */
+    @Column(name = "user_code")
     private String userCode;
 
     /**
@@ -60,6 +62,7 @@ public class SysUser implements Serializable {
     /**
      * 管理员密码
      */
+    @Column(name = "user_password")
     private String userPassword;
 
     public Long getId() {

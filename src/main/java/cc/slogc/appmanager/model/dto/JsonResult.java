@@ -4,8 +4,8 @@ package cc.slogc.appmanager.model.dto;
  *     Json格式
  * </pre>
  *
- * @author : RYAN0UP
- * @date : 2018/5/24
+ * @author : Aanko
+ * @date : 2018/9/26
  */
 public class JsonResult {
 
@@ -50,11 +50,10 @@ public class JsonResult {
 
     /**
      * 返回状态码和数据
+     *  @param code   状态码
      *
-     * @param code   状态码
-     * @param result 数据
      */
-    public JsonResult(Integer code, Object result) {
+    public JsonResult(Integer code) {
         this.code = code;
         this.result = result;
     }

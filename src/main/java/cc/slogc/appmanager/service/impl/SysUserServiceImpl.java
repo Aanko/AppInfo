@@ -86,5 +86,21 @@ public class SysUserServiceImpl extends SysUserService {
         sysUserRepository.save(sysUser);
     }
 
+    /**
+     * 登录验证
+     * @param sysUser
+     * @return
+     */
+    public SysUser verifyLogin(SysUser sysUser){
+
+        List<SysUser> userList = sysUserRepository.findSysUsersByUserCodeAndUserPassword(sysUser.getUserCode(), sysUser.getUserPassword());
+        if (userList != null && userList.size() > 0) {
+            return userList.get(0);
+        }
+        else {
+            return null;
+        }
+    }
+
 
 }

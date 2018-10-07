@@ -17,7 +17,7 @@ import java.util.List;
  * @date : 2018/9/20
  */
 @RestController
-@RequestMapping(value = "/index")
+@RequestMapping(value = "/user")
 public class UserController {
 
     /**
