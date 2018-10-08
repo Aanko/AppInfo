@@ -138,9 +138,11 @@
     <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/static/plugins/toast/js/jquery.toast.min.js"></script>
     <script>
-        $(document).keydown(function (event) {  //回车登录
-            if (event.keyCode == 13) {
-                loginbtn();
+        $("body").keydown(function() {
+            //使用回车进行快捷登录
+            if (event.keyCode == "13") {
+                //keyCode=13是回车键
+                $(".btn").click();
             }
         });
     </script>
