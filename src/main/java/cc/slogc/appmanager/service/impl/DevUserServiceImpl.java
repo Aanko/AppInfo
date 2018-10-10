@@ -90,4 +90,22 @@ public class DevUserServiceImpl extends DevUserService {
         devUserRepository.save(devUser);
     }
 
+    /**
+     * 登录验证
+     * @param devUser
+     * @return
+     */
+    public DevUser verifyLogin(DevUser devUser){
+
+        List<DevUser> userList = devUserRepository.findDevUserByDevCodeAndDevPassword(devUser.getDevCode(), devUser.getDevPassword());
+        if (userList != null && userList.size() > 0) {
+            return userList.get(0);
+        }
+        else {
+            return null;
+        }
+    }
+
+
+
 }

@@ -6,7 +6,6 @@
         body {
 
         }
-
         .content-center {
             margin: 50px auto;
         }

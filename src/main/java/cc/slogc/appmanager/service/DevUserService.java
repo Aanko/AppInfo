@@ -52,4 +52,7 @@ public abstract class DevUserService {
      * @param devUser
      */
     public abstract void update(DevUser devUser);
+
+
+    public abstract DevUser verifyLogin(DevUser devUser);
 }

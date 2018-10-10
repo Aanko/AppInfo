@@ -22,7 +22,6 @@ import java.io.IOException;
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String SESSION_KEY="sesysUser";
-
     @Bean
     public SecurityInterceptor getSecurityInterceptor(){
         return new SecurityInterceptor();
@@ -34,6 +33,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/error");
         addInterceptor.excludePathPatterns("/login**");
         addInterceptor.excludePathPatterns("/login/**");
+        addInterceptor.excludePathPatterns("/devlogin/**");
         addInterceptor.excludePathPatterns("/index");
         addInterceptor.excludePathPatterns("/static/**");
         addInterceptor.excludePathPatterns("/templates/**");

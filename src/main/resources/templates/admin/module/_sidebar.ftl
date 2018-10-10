@@ -5,7 +5,7 @@
                 <img src="/static/images/default.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>admin</p><a href="#"><i class="fa fa-circle text-success"></i>个人资料</a>
+                <p>${sesysUser.userName}</p><a href="#"><i class="fa fa-circle text-success"></i>个人资料</a>
             </div>
         </div>
         <form action="#" method="get" class="sidebar-form">

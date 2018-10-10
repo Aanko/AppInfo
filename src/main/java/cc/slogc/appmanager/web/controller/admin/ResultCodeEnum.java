@@ -16,7 +16,7 @@ public enum ResultCodeEnum {
     FAIL(0);
 
     Integer code;
-    Object result;
+
     ResultCodeEnum(Integer code) {
         this.code = code;
     }
@@ -25,10 +25,4 @@ public enum ResultCodeEnum {
         return code;
     }
 
-    ResultCodeEnum( Object result){
-        this.result=result;
-    }
-    public Object getResult(){
-        return result;
-    }
 }

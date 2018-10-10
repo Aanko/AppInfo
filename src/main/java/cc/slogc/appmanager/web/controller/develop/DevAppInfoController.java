@@ -1,4 +1,4 @@
-package cc.slogc.appmanager.web.controller.admin;
+package cc.slogc.appmanager.web.controller.develop;
 
 import cc.slogc.appmanager.model.dto.JsonResult;
 import cc.slogc.appmanager.model.entity.AppInfo;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  */
 @Controller
-@RequestMapping(value = "/admin/appInfo")
-public class AppInfoController {
+@RequestMapping(value = "Develop/appInfo")
+public class DevAppInfoController {
     @Autowired
     AppInfoService appInfoService;
     @GetMapping
@@ -31,7 +31,7 @@ public class AppInfoController {
         Page<AppInfo> appInfos = appInfoService.listPage(pageable);
         //将appInfos返回到页面
         model.addAttribute("appInfos", appInfos);
-        return "admin/admin_app";
+        return "Develop/dev_app";
     }
 
     /**
@@ -39,49 +39,48 @@ public class AppInfoController {
      *
      * @param model model
      * @param id id
-     * @return 模板路径admin/app/form
+     * @return 模板路径develop/app/form
      */
     @GetMapping(value = "/toEdit")
     public String toEdit(Model model,
                          @RequestParam(value = "id") Long id){
-        AppInfo appinfo = appInfoService.getById(id);
-        if(null!=appinfo){
-            model.addAttribute("appinfo",appinfo);
+        AppInfo appInfo = appInfoService.getById(id);
+        if(null!=appInfo){
+            model.addAttribute("appInfo",appInfo);
         }
         model.addAttribute("title", "修改");
-        return "admin/appInfo/form";
+        return "Develop/appInfo/form";
     }
 
     /**
      * 跳转到添加页面
      *
      * @param model model
-     * @return 模板路径admin/appinfo/form
+     * @return 模板路径develop/appinfo/form
      */
     @GetMapping(value = "/toAdd")
     public String toAdd(Model model) {
         model.addAttribute("title", "添加");
-        return "admin/appInfo/form";
+        return "Develop/appInfo/form";
     }
 
     /**
      * 保存
      *
-     * @param appinfo appInfo
+     * @param appInfo appInfo
      * @return JsonResult
      */
     @PostMapping(value = "/save")
     @ResponseBody
-    public JsonResult add(@ModelAttribute AppInfo appinfo) {
+    public JsonResult add(@ModelAttribute AppInfo appInfo) {
         try {
-            appInfoService.add(appinfo);
+            appInfoService.add(appInfo);
         } catch (Exception e) {
             e.printStackTrace();
             return new JsonResult(0, "保存失败");
         }
         return new JsonResult(1, "保存成功");
     }
-
 
     /**
      * 根据编号删除App信息
@@ -91,15 +90,10 @@ public class AppInfoController {
      */
     @GetMapping(value = "/delete")
     public String delete(@RequestParam(value = "id") Long id) {
-        try {
-            AppInfo appinfo = appInfoService.getById(id);
-            if (null != appinfo) {
-                appInfoService.delete(appinfo);
+            AppInfo appInfo = appInfoService.getById(id);
+            if (null != appInfo) {
+                appInfoService.delete(appInfo);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "redirect:/admin/appInfo";
+        return "redirect:/Develop/appInfo";
     }
-
 }
