@@ -21,13 +21,17 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
             <li>
-                <a data-pjax="true" href="/admin">
+                <a data-pjax="true" href="/Develop">
                     <i class="fa fa-dashboard"></i>
                     <span>仪表盘</span>
                 </a>
             </li>
-
-            <li><a data-pjax="true" href="/Develop/appInfo"><i class="fa fa-circle-o"></i>应用列表</a></li>
+            <li>
+                <a data-pjax="true" href="/Develop/appInfo">
+                    <i class="fa fa-circle-o"></i>
+                    <span>应用列表</span>
+                </a>
+            </li>
         </ul>
     </section>
 </aside>

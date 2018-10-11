@@ -41,7 +41,7 @@
                 <h1 style="display: inline-block;">APP管理</h1>
                 <ol class="breadcrumb">
                     <li>
-                        <a data-pjax="true" href="/admin">
+                        <a data-pjax="true" href="/Develop">
                             <i class="fa fa-dashboard"></i> 首页</a>
                     </li>
                     <li><a data-pjax="true" href="#">APP管理</a></li>
