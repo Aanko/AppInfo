@@ -87,10 +87,10 @@
                                                         <label>${appinfo.appInduction!}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appinfo.softwareSize!}</label>
+                                                        <label>${appinfo.softwareSize!?c}</label>
                                                     </td>
                                                     <td>
-                                                        <label>${appinfo.downloads!}</label>
+                                                        <label>${appinfo.downloads!?c}</label>
                                                     </td>
                                                     <td>
                                                         <label>${appinfo.versionId!}</label>

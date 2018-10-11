@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
-    public final static String SESSION_KEY="sesysUser";
+    public final static String SESSION_KEY="sesysUser"; //session 存的key
     @Bean
     public SecurityInterceptor getSecurityInterceptor(){
         return new SecurityInterceptor();

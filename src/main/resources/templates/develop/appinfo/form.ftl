@@ -44,13 +44,13 @@
                         <div class="form-group">
                             <label for="softwareSize" class="col-sm-2 control-label">软件大小（按照m计算）</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="softwareSize" name="softwareSize" value="<#if appInfo??>${appInfo.softwareSize?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="softwareSize" name="softwareSize" value="<#if appInfo??>${appInfo.softwareSize?c}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="downloads" class="col-sm-2 control-label">下载次数</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="downloads" name="downloads" value="<#if appInfo??>${appInfo.downloads?if_exists}</#if>" >
+                                <input type="text" class="form-control" id="downloads" name="downloads" value="<#if appInfo??>${appInfo.downloads?c}</#if>" >
                             </div>
                         </div>
                         <div class="form-group">
