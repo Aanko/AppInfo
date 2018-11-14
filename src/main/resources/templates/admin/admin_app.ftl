@@ -121,14 +121,14 @@
                                 <ul class="pagination no-margin pull-right">
                                     <li><a data-pjax="true"
                                            class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>"
-                                           href="/admin/posts">首页</a></li>
+                                           href="/admin/appInfo">首页</a></li>
                                     <li><a data-pjax="true"
                                            class="btn btn-sm <#if !appInfos.hasPrevious()>disabled</#if>"
-                                           href="/admin/posts?page=${appInfos.number-1}">上一页</a></li>
+                                           href="/admin/appInfo?page=${appInfos.number-1}">上一页</a></li>
                                     <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${appInfos.number+1}">下一页</a></li>
+                                           href="/admin/appInfo?page=${appInfos.number+1}">下一页</a></li>
                                     <li><a data-pjax="true" class="btn btn-sm <#if !appInfos.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${appInfos.totalPages-1}">尾页</a></li>
+                                           href="/admin/appInfo?page=${appInfos.totalPages-1}">尾页</a></li>
                                 </ul>
                             </div>
                         </div>

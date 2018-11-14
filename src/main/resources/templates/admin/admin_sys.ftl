@@ -111,14 +111,14 @@
                                 <ul class="pagination no-margin pull-right">
                                     <li><a data-pjax="true"
                                            class="btn btn-sm <#if !sysUsers.hasPrevious()>disabled</#if>"
-                                           href="/admin/posts">首页</a></li>
+                                           href="/admin/SysUser">首页</a></li>
                                     <li><a data-pjax="true"
                                            class="btn btn-sm <#if !sysUsers.hasPrevious()>disabled</#if>"
-                                           href="/admin/posts?page=${sysUsers.number-1}">上一页</a></li>
+                                           href="/admin/SysUser?page=${sysUsers.number-1}">上一页</a></li>
                                     <li><a data-pjax="true" class="btn btn-sm <#if !sysUsers.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${sysUsers.number+1}">下一页</a></li>
+                                           href="/admin/SysUser?page=${sysUsers.number+1}">下一页</a></li>
                                     <li><a data-pjax="true" class="btn btn-sm <#if !sysUsers.hasNext()>disabled</#if>"
-                                           href="/admin/posts?page=${sysUsers.totalPages-1}">尾页</a></li>
+                                           href="/admin/SysUser?page=${sysUsers.totalPages-1}">尾页</a></li>
                                 </ul>
                             </div>
                         </div>

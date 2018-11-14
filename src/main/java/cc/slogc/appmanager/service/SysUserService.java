@@ -58,6 +58,11 @@ public abstract class SysUserService {
      */
     public abstract void update(SysUser sysUser);
 
+    /**
+     * 登录
+     * @param sysUser
+     * @return
+     */
     public abstract SysUser verifyLogin(SysUser sysUser);
 
 

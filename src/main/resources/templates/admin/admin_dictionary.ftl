@@ -90,10 +90,10 @@
                                     第${dictionaries.number+1}/${dictionaries.totalPages}页
                                 </div>
                                 <ul class="pagination no-margin pull-right">
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasPrevious()>disabled</#if>" href="/admin/posts">首页</a> </li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasPrevious()>disabled</#if>" href="/admin/posts?page=${dictionaries.number-1}">上一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasNext()>disabled</#if>" href="/admin/posts?page=${dictionaries.number+1}">下一页</a></li>
-                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasNext()>disabled</#if>" href="/admin/posts?page=${dictionaries.totalPages-1}">尾页</a> </li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasPrevious()>disabled</#if>" href="/admin/dictionary">首页</a> </li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasPrevious()>disabled</#if>" href="/admin/dictionary?page=${dictionaries.number-1}">上一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasNext()>disabled</#if>" href="/admin/dictionary?page=${dictionaries.number+1}">下一页</a></li>
+                                    <li><a data-pjax="true" class="btn btn-sm <#if !dictionaries.hasNext()>disabled</#if>" href="/admin/dictionary?page=${dictionaries.totalPages-1}">尾页</a> </li>
                                 </ul>
                             </div>
                         </div>
